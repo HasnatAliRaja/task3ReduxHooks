@@ -28,7 +28,24 @@ const paginate = (query, startIndex) => {
     }
   };
 };
-
+const searchBarLoader = (show = false) => {
+  return {
+    type: constants.LOADIN_BAR,
+    payload: { show },
+  };
+};
+const loadMoreLoader = (show = false) => {
+  return {
+    type: constants.LOADMORE_BUTTON,
+    payload: { show },
+  };
+};
+const searchPageLoader = (show = true) => {
+  return {
+    type: constants.SEARCH_PAGE_LOADER,
+    payload: { show },
+  };
+};
 // const fetchBook = (bookId) => {
 //   return async (dispatch) => {
 //     try {
@@ -53,4 +70,11 @@ const searchBooks = (query) => {
     }
   };
 };
-export default { fetchBooks, /*fetchBook,*/ searchBooks, paginate };
+export default {
+  fetchBooks,
+  /*fetchBook,*/ searchBarLoader,
+  searchBooks,
+  paginate,
+  loadMoreLoader,
+  searchPageLoader,
+};

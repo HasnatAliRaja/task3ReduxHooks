@@ -6,6 +6,9 @@ const initialState = {
   books: [],
   selectedBook: {},
   searchedResults: [],
+  isLoadingBar: false,
+  isLoadingMoreButton: false,
+  isSearchPageLoading: true
 };
 
 const store = createStore(reducer, initialState, applyMiddleware(Thunk));

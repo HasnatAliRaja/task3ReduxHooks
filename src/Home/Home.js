@@ -3,18 +3,32 @@ import actions from "../store/actions";
 import "./Home.css";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import loadingGif from "../assets/gifs/tenor.gif";
 
 const Home = () => {
   const books = useSelector((state) => state.books);
-  console.log(books);
   const dispatch = useDispatch();
   const [input, setInput] = useState("");
   const [open, setOpen] = useState(false);
   const [startIndex, setStartIndex] = useState(10);
+  const isLoadingBar = useSelector((state) => state.isLoadingBar);
+  const isLoadingMoreButton = useSelector ((state)=>state.isLoadingMoreButton);
 
   useEffect(() => {
+    dispatch(actions.searchBarLoader(true));
+    console.log(isLoadingBar);
     dispatch(actions.fetchBooks(input));
+
+    console.log(isLoadingBar);
   }, [input]);
+  useEffect(() => {
+    setTimeout(() => {
+      dispatch(actions.searchBarLoader(false));
+    }, 250);
+    setTimeout(()=>{
+      dispatch(actions.loadMoreLoader(false));
+    },500)
+  });
 
   let handleChange = (e) => {
     setInput(e.target.value);
@@ -25,7 +39,10 @@ const Home = () => {
   };
 
   let onLoadClick = () => {
-    dispatch(actions.paginate(input, startIndex));
+    dispatch(actions.loadMoreLoader(true));
+    setTimeout(()=>{
+      dispatch(actions.paginate(input, startIndex));
+    },250);
     setStartIndex(startIndex + 10);
   };
 
@@ -43,6 +60,11 @@ const Home = () => {
             // onBlur={() => setOpen(false)}
             onChange={handleChange}
           ></input>
+          <div className="loaderContainerBar">
+            {isLoadingBar && (
+              <img className="searchFieldLoader" src={loadingGif} />
+            )}
+          </div>
           <Link
             to={`/search/${input.replace(/\s/g, "+")}`}
             className="searchLink"
@@ -92,9 +114,10 @@ const Home = () => {
                     )}
                   </div>
                 ))}
-              {startIndex <= 40 && books!=''&& (
+              {startIndex <= 40 && books != "" && (
                 <button className="loadMoreButton" onClick={onLoadClick}>
-                  Load More
+                  Load More{" "}
+                  {isLoadingMoreButton&&<img className="loadMoreLoader" src={loadingGif} />}
                 </button>
               )}
             </div>

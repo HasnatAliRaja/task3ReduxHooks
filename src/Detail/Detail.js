@@ -5,7 +5,7 @@ const Detail = (props) => {
   
   
   //Dumb Works! useMemo useCallback useRef!!!
-
+  console.log("Janab",props);
   const book = props.location.state.Book;
   console.log("Mahatama Books",book) 
   return (

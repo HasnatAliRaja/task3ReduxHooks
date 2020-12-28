@@ -1,67 +1,95 @@
-.bookCard{
-    width:200px;
-    height: 300px;
-    background-color: black;
-    border-radius: 5px;
-    
-
-}
-.title{
-    display: inline-block;
-    overflow: hidden;
-    font-size: 12px;
-    /* background-color: greenyellow; */
-    max-height: 20px;
-}
 
 .containerGrid{
 
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: auto;
-    grid-gap: 50px;
-    margin :auto;
-    width: 60%;
-    margin-top: 4em;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 50px;
+  margin :auto;
+  width: 60%;
+  padding-top: 4em  ;
 
 }
+.searchPageWrapper{
+  height: 100%;
+  width:100%;
+}
+.bookCard{
+  width:200px;
+  height: 300px;
+  background-color: black;
+  border-radius: 5px;
+  
+
+}
+.title{
+  display: inline-block;
+  overflow: hidden;
+  font-size: 12px;
+  /* background-color: greenyellow; */
+  max-height: 18px;
+}
+
 .bookCard img{
-    min-width: 200px;
-    max-width: 200px;
-    max-height: 200px;
-    min-height: 200px;
-     
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+  min-width: 200px;
+  max-width: 200px;
+  max-height: 200px;
+  min-height: 200px;
+   
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 
 }
 
 /* //.toolTip */
 .toolTip {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
-    margin-left: 10px;
-  }
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+  margin-left: 10px;
+}
+
+/* toolTip text */
+.toolTip .toolText {
+  display: none;
   
-  /* toolTip text */
-  .toolTip .toolText {
-    display: none;
-    
-    width: 240px;
-    background-color: white;
-    color: black;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
-   
-    /* Position the toolTip text - see examples below! */
-    position: absolute;
-    z-index: 1;
-  }
+  width: 240px;
+  background-color: white;
+  color: black;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+ 
+  /* Position the toolTip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the toolTip text when you mouse over the toolTip container */
+.title:hover+ .toolTip>.toolText {
+  display: inline-block;
+}
+
+/* Loader */
+.searchLoader{
+  position: absolute;;
   
-  /* Show the toolTip text when you mouse over the toolTip container */
-  .title:hover+ .toolTip>.toolText {
-    display: inline-block;
-  }
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -25px 0 0 -25px;
   
+  
+}
+.loaderHolderGif{
+  /* background-color: rgba(0,0,0,0.1); */
+  height: inherit;
+  width:100%;
+  position: absolute;
+  top:70px;
+  align-items: center;
+  justify-content: center;
+  
+}

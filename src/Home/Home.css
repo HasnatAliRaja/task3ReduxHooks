@@ -12,7 +12,7 @@
   border-radius: 0;
   border-top: 1px solid lightgray;
   border-left: 1px solid lightgray;
-  border-right: 1px solid lightgray;
+  border-right: 0;
   border-bottom: 1px solid lightgray;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
@@ -31,6 +31,7 @@
   border-top-right-radius: 5px;
   font-size: 1.5rem;
   color: white;
+  border-left: 1px solid lightgray;
 }
 .searchButton:hover{
   background-color: rgba(255,182,193,0.8);
@@ -125,3 +126,26 @@
   
 }
 
+.searchFieldLoader{
+ width: 40px;
+ height: 40px;
+ padding-top: 12px;
+
+ 
+  
+}
+.loaderContainerBar{
+  width: 64px;
+  height: 62px;
+  border-top: 1px solid lightgray;
+  background-color: white;
+  border-bottom: 1px solid lightgray;
+  display: flex;
+  align-content: center;
+}
+.loadMoreLoader{
+  width: 20px;
+  height: 20px;
+  float: right;
+  padding-top: 5px;
+}
